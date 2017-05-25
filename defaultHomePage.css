@@ -1,38 +1,17 @@
 .b_searchboxSubmit {
-    height: 45px;
-    width: 45px;
-    border: 8px solid #0c8484;
-    background: #0c8484 url(/s/a/hpc18.png) no-repeat;
-    background-position: -169px -63px;
-    overflow: hidden;
-    vertical-align: top;
-    margin: -1px;
+	display: none;
 }
 
 .hp_sw_logo {
-    float: left;
-    text-indent: -20em;
-    _padding-right: 8px;
-    _height: 50px;
+	display: none;
 }
 
 .hpcLogoWhite {
-    background: transparent url(bing_yt.png) no-repeat;
-    overflow: hidden;
-    background-position: 0 0;
-    margin: -7px 10px 0 0;
-    width: 150px;
-    height: 52px;
+	display: none;
 }
 
 #sbox.sw_sform {
-    position: relative;
-    top: 20%;
-    left: auto;
-    transform: translateY(-80%);
-    width: 1028px;
-    margin: auto;
-    z-index: 8;
+	display: none;
 }
 .sw_sform {
     position: absolute;
@@ -42,75 +21,37 @@
     _width: 690px;
     margin: 0;
     z-index: 9;
+	display: none;
 }
 body .b_searchboxForm {
-    background-color: #fff;
-    /*border: 1px #e5e5e5 solid;*/
-    _border: 0;
-    padding: 0;
+	display: none;
 }
 .b_searchboxForm {
-    position: relative;
-    display: inline-block;
-    _left: 25px;
-    zoom: 1;
+	display: none;
 }
 .b_searchboxForm, #id_h .id_button, .id_avatar, .rwds_bep_head, .sw_pref {
-    display: inline-block;
+	display: none;
 }
 .b_searchboxForm {
-    font: 18px/normal 'Segoe UI',Arial,Helvetica,Sans-Serif;
+	display: none;
 }
 .b_searchboxForm {
-    border: 1px #999 solid;
+	display: none;
 }
 #sbox .b_searchbox {
-    width: 632px;
+	display: none;
 }
 .b_searchbox {
-    background-color: #fff;
-    margin: 6px 1px 0 9px;
-    width: 487px;
-    border-right: 0;
-    padding-right: 4px;
-    _height: 20px;
+	display: none;
 }
 .b_searchbox {
-    width: 490px;
-    margin-top: 2px;
-    margin-right: 0;
-    margin-bottom: 3px;
-    margin-left: 12px;
-    border: 0;
-    padding-top: 0;
-    padding-right: 10px;
-    padding-bottom: 0;
-    padding-left: 0;
-    max-height: 30px;
-    outline: none;
-    -webkit-appearance: none;
-	border-right: 1px solid;
-    border-color: #ccc;
-    box-sizing: content-box;
-    position: relative;
-    height: 40px;
+	display: none;
 }
 body .b_searchboxForm .b_searchboxSubmit {
-    height: 45px;
-    width: 45px;
-    border: 8px solid #0c8484;
-    background: #0c8484 url(hpc18.png) no-repeat;
-    background-position: -169px -63px;
-    overflow: hidden;
-    vertical-align: top;
-    margin: -1px;
+	display: none;
 }
 .b_searchboxSubmit {
-    text-indent: -99em;
-    position: static;
-    right: 0;
-    top: 0;
-    cursor: pointer;
+	display: none;
 }
 
 .cntLight .b_searchboxForm {
@@ -118,46 +59,23 @@ body .b_searchboxForm .b_searchboxSubmit {
 }
 
 .cntLight #sbox .b_searchbox {
-    width: 632px;
+	display: none;
 }
 body .b_searchbox {
-    background-color: #fff;
-    margin: 6px 1px 0 9px;
-    width: 487px;
-    border-right: 0;
-    padding-right: 4px;
-    _height: 20px;
+	display: none;
 }
 .b_searchbox {
-    width: 490px;
-    margin-top: 2px;
-    margin-right: 0;
-    margin-bottom: 3px;
-    margin-left: 12px;
-    border: 0;
-    padding-top: 0;
-    padding-right: 10px;
-    padding-bottom: 0;
-    padding-left: 0;
-    max-height: 30px;
-    outline: none;
-    -webkit-appearance: none;
-    border-right: 1px solid;
-    border-color: #ccc;
-    box-sizing: content-box;
-    position: relative;
-    height: 40px;
+	display: none;
 }
 input {
     font: inherit;
     font-size: 100%;
 }
 user agent stylesheetinput[type="search" i] {
-    padding: 1px;
+	display: none;
 }
 user agent stylesheetinput[type="search" i] {
-    -webkit-appearance: searchfield;
-    box-sizing: border-box;
+	display: none;
 }
 user agent stylesheetinput {
     -webkit-appearance: textfield;
@@ -192,13 +110,10 @@ user agent stylesheetinput, textarea, keygen, select, button, meter, progress {
 
 div.b_searchboxForm
 .b_searchboxForm {
-    position: relative;
-    display: inline-block;
-    _left: 25px;
-    zoom: 1;
+	display: none;
 }
 .b_searchboxForm {
-    font: 18px/normal 'Segoe UI',Arial,Helvetica,Sans-Serif;    
+	display: none;
 }
 
 html, body{
