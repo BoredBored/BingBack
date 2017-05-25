@@ -37,59 +37,31 @@ body, iframe {
 }
 
 .favGroup {
-    position: relative;
-    top: 40%;
-    left: -1%;
-    width: 720px;
-    z-index: 1;
+	display: none;
 }
 
 .mv-title {
-    border: none;
-    height: 31px;
-    position: absolute;
-    display: inline;
-    margin-left: 5%;
-    overflow: hidden;
-    width: 99px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: rgb(0, 0, 0);
-    font-size: 12px;
-    font-family: arial, sans-serif;
-    text-align: left;
-    padding-top: 1.5px;
+	display: none;
 }
 
 .mv-favicon{
-    display: inline;
+	display: none;
 }
 
 .mv-tile {
-    background-color: rgba(240,240,240,.8);
-    position: relative;
-    display: inline-block;
-    margin: 10px;
-    border: 1px solid transparent;
-    height: 50px;
-    width: 155.5px;
+	display: none;
 }
 
 .mv-tile-content{
-    margin: 16px;
+	display: none;
 }
 
 .mv-tile:hover{
-    border: 1px solid #c8c8c8;
+	display: none;
 }
 
 .mv-fav {
-    background-size: 16px;
-    top: 17px;
-    height: 16px;
-    left: 15px;
-    pointer-events: none;
-    width: 16px;
+	display: none;
 }
 
 .mvs_hide{
