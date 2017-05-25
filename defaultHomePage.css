@@ -14,13 +14,6 @@
 	display: none;
 }
 .sw_sform {
-    position: absolute;
-    top: 20%;
-    left: 8%;
-    width: 1028px;
-    _width: 690px;
-    margin: 0;
-    z-index: 9;
 	display: none;
 }
 body .b_searchboxForm {
