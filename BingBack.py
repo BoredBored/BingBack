@@ -11,11 +11,12 @@ from urllib2 import urlopen
 from urllib2 import Request
 from json import loads
 
+SeeDebugMessages = True
+SetDestopWallpaper = False
 home = expanduser('~')
 folder = "Pictures"
 BingBackFolder = "%s/%s/BingDailyImages" % (home, folder) #change to "" if you don't care
 LogPath = "%s/BING_BACK_LOG.txt" % (BingBackFolder)
-SeeDebugMessages = True
 PrintedDateInLog = False
 now = datetime.now()
 todaydate = "%s\%s\%s"%(now.month, now.day, now.year)
@@ -27,7 +28,7 @@ def log(str):
             f.write("%s ERROR: %s"%(todaydate, str))
         except:
             f.close()
-            print("%s ERROR: LOGGING"%(todaydate))
+            print("%s ERROR: LOGGING INTERRUPTED"%(todaydate))
             quit()
         f.close()
         quit()
@@ -208,8 +209,9 @@ def main():
     BingFolder() # Comment out if you just want to download in your current working dir
 
     downloadPic(ImgURL, ImgN)
-
-    print("~ Setting as wallpaper ~")
-    setWallpaper(ImgN, False)
+	
+    if SetDestopWallpaper == True:
+        print("~ Setting as wallpaper ~")
+        setWallpaper(ImgN, False)
         
 main()
