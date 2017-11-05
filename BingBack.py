@@ -11,7 +11,7 @@ from urllib2 import urlopen
 from urllib2 import Request
 from json import loads
 
-SeeDebugMessages = True
+SeeDebugMessages = False
 SetDestopWallpaper = False
 home = expanduser('~')
 folder = "Pictures"
