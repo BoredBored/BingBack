@@ -7,7 +7,7 @@ The backgound setting feature has not been thoroughly tested and has only been u
 If you would like to the wallpaper module out just set the global variable `SetDestopWallpaper` to true.
 
 ## Install
-No install, just run `python BingBack.py` to get the current Bing image of the day.
+Just run `python BingBack.py` to get the current Bing image of the day, if it detects that it has not created the necessary folders then it will automatically create them.
 
 ## Credits
  - [BoredBored](https://github.com/BoredBored)
