@@ -165,7 +165,7 @@ def set_wallpaper_linux(file_loc, debug):
             elif "LinuxMint" in desktop_env:
                 uri = "\"file://%s\"" % file_loc
                 args = ["gsettings", "set", "org.cinnamon.desktop.background", "picture-uri", uri]
-                printArr(args)
+                if debug == True: printArr(args)
                 ex(args)
             else:
                 stderr.write("Warning: Failed to set wallpaper. Your desktop environment is not supported.\n")
@@ -212,6 +212,6 @@ def main():
 	
     if SetDestopWallpaper == True:
         print("~ Setting as wallpaper ~")
-        setWallpaper(ImgN, False)
+        setWallpaper(ImgN, SeeDebugMessages)
         
 main()
