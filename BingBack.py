@@ -11,8 +11,9 @@ from urllib2 import urlopen
 from urllib2 import Request
 from json import loads
 
-SeeDebugMessages = False
-SetDestopWallpaper = False
+SeeDebugMessages 		= False
+SetDestopWallpaper 		= False
+CreateFolderForTheImageOfTheDay = False
 home = expanduser('~')
 folder = "Pictures"
 BingBackFolder = "%s/%s/BingDailyImages" % (home, folder) #change to "" if you don't care
@@ -33,37 +34,37 @@ def log(str):
         f.close()
         quit()
 
-def makeFolder(str):
+def makeFolder(name):
     #str = str.replace("/", "\\") #comment out if recursively creating folders
-    if str == "":
+    if name == "":
         if SeeDebugMessages == True:
             print("ERROR: Please specify a folder name -- \"\"/NULL is not a folder name")
         return 2
-    elif isdir(str) == False:
+    elif isdir(name) == False:
         if SeeDebugMessages == True:
-            print("Creating folder \'%s\'" % (str))
-        mkdir(str)
+            print("Creating folder \'%s\'" % (name))
+        mkdir(name)
         return 0
     else:
         if SeeDebugMessages == True:
-            print("Folder \'%s\' already exists" % (str))
+            print("Folder \'%s\' already exists" % (name))
         return 1
 
-def downloadPic(url, str): #str = name
+def downloadPic(url, name):
     if str == "":
         if SeeDebugMessages == True:
             print("ERROR: Please specify a file name for your picture -- \"\"/NULL is not a file name")
         return 1
-    elif isfile(str) == False:
+    elif isfile(name) == False:
         if SeeDebugMessages == True:
-            print("Downloading picture from: %s\nSaving pic as: %s" % (url, str))
-        with open(str,'wb')as f:
+            print("Downloading picture from: %s\nSaving pic as: %s" % (url, name))
+        with open(name,'wb')as f:
             f.write(urlopen(url).read())
             f.close()
         return 0
     else:
         if SeeDebugMessages == True:
-            print("File \'%s\' already exists" % (str))
+            print("File \'%s\' already exists" % (name))
         return 1
 
 
@@ -84,12 +85,12 @@ def ImgPathFunc():
 
     return ImgJSON['images'][0]['url']
 
-def GETName(str): #str = ImgPath
+def GETName(picPath):
     #check if it is the right path
-    if ("/az/hprichbg/rb/" in str) is False:
-        log("String \'/az/hprichbg/rb/\' not in string \'%s\'" % (str))
+    if ("/az/hprichbg/rb/" in picPath) is False:
+        log("String \'/az/hprichbg/rb/\' not in string \'%s\'" % (picPath))
     else:
-        return str.replace("/az/hprichbg/rb/", "")
+        return picPath.replace("/az/hprichbg/rb/", "")
 
 def BingImg():
     ImgPath = ImgPathFunc()
@@ -98,10 +99,13 @@ def BingImg():
 
 def BingFolder():
     makeFolder(BingBackFolder)
-    #todayfolder = "%s/%s" %(BingBackFolder, todaydate)
+    todayfolder = "%s/%s" %(BingBackFolder, todaydate)
 
-    #makeFolder(todayfolder)
-    chdir(BingBackFolder)#change to chdir(todayfolder) if you want to download images in the folder of the day
+    if CreateFolderForTheImageOfTheDay == True :
+	makeFolder(todayfolder)
+	chdir(todayfolder)
+    else:
+        chdir(BingBackFolder)
 
 def printArr(arr):
   print ' '.join(arr)
