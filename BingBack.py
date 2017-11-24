@@ -128,9 +128,15 @@ def change_wallpaper_win(SPISETDESKWALLPAPER, WALLPAPER_PATH):
 def set_wallpaper_windows(ab_path):
   change_wallpaper_win(20, ab_path)
 
-def error_msg(msg):
-    print(msg)
-    quit()
+def set_wallpaper_mac(file_loc, debug):
+	from sys import stderr
+        from subprocess import Popen as ex
+	try:
+		SCRIPT = """/usr/bin/osascript<<END\ntell application "Finder"\nset desktop picture to POSIX file "%s"\nend tell\nEND"""%(file_loc)
+		ex(SCRIPT, shell=True)
+	except:
+		stderr.write("ERROR: Failed to set wallpaper. There might be a bug.\n")
+        	return False
 
 def set_wallpaper_linux(file_loc, debug):
         from platform import linux_distribution
@@ -142,7 +148,7 @@ def set_wallpaper_linux(file_loc, debug):
             print (file_loc)
         try:
             uri = "\"file://%s\""%(file_loc)
-            if "Ubuntu" in desktop_env or "gnome" in desktop_env:
+            if "Ubuntu" in desktop_env or "ubuntu" in desktop_env or "Gnome" in desktop_env or"gnome" in desktop_env:
                 if debug == True: print ("Ubuntu/Gnome Detected")
                 args = ["gsettings", "set", "org.gnome.desktop.background", "picture-uri", uri]
                 printArr(args)
@@ -178,6 +184,8 @@ def setWallMain(pathy, debug):
     return set_wallpaper_linux(pathy, debug)
   elif ostype == "Windows":
     return set_wallpaper_windows(pathy)
+  elif ostype == "Darwin":
+    return set_wallpaper_mac(pathy, debug)
   else:
     stderr.write("ERROR: Failed to set wallpaper. There might be a bug.\n")
     return False
@@ -206,6 +214,7 @@ def main():
 	
     if SetDestopWallpaper == True:
         print("~ Setting as wallpaper ~")
-        setWallpaper(ImgN, SeeDebugMessages)
+        if setWallpaper(ImgN, SeeDebugMessages=False) == False:
+            print("Error setting wallpaper")
         
 main()
