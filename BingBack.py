@@ -11,8 +11,8 @@ from urllib2 import urlopen
 from urllib2 import Request
 from json import loads
 
-SeeDebugMessages 		= False
-SetDestopWallpaper 		= False
+SeeDebugMessages 		= True
+SetDestopWallpaper 		= True
 CreateFolderForTheImageOfTheDay = False
 home = expanduser('~')
 folder = "Pictures"
@@ -127,10 +127,12 @@ def change_wallpaper_win(SPISETDESKWALLPAPER, WALLPAPER_PATH):
 
 def set_wallpaper_windows(ab_path):
   change_wallpaper_win(20, ab_path)
+
+def error_msg(msg):
+    print(msg)
+    quit()
+
 def set_wallpaper_linux(file_loc, debug):
-        # Note: There are two common Linux desktop environments where 
-        # I have not been able to set the desktop background from 
-        # command line: KDE, Enlightenment
         from platform import linux_distribution
         from subprocess import Popen as ex
         from sys import stderr
@@ -139,35 +141,23 @@ def set_wallpaper_linux(file_loc, debug):
             print ("Desktop_env = %s"%(str(desktop_env)))
             print (file_loc)
         try:
-            if ["gnome", "unity", "cinnamon"] in desktop_env:
-                uri = "\"file://%s\"" % file_loc
-                if debug == True: print ("Gnome/Unity/Cinnamon detected")
-                #try: from gi.repository import Gio
-                #except: 
-                #    stderr.write("Please install PyGObject (https://python-gtk-3-tutorial.readthedocs.io/en/latest/install.html)\n")
-                #    return False
-                try:
-                    from gi.repository import Gio
-                    SCHEMA = "org.gnome.desktop.background"
-                    KEY = "picture-uri"
-                    gsettings = Gio.Settings.new(SCHEMA)
-                    gsettings.set_string(KEY, uri)
-                except:
-                    args = ["gsettings", "set", "org.gnome.desktop.background", "picture-uri", uri]
-                    printArr(args)
-                    ex(args)
-            elif desktop_env=="gnome2": # Not tested
-                if debug == True: print ("Gnome2 detected")
-                args = ["gconftool-2","-t","string","--set","/desktop/gnome/background/picture_filename", '"%s"' %file_loc]
+            uri = "\"file://%s\""%(file_loc)
+            if "Ubuntu" in desktop_env or "gnome" in desktop_env:
+                if debug == True: print ("Ubuntu/Gnome Detected")
+                args = ["gsettings", "set", "org.gnome.desktop.background", "picture-uri", uri]
                 printArr(args)
                 ex(args)
-            elif desktop_env in ["kde3", "trinity"]:
+            elif "gnome2" in destop_env: # Not tested
+                if debug == True: print ("Gnome2 detected")
+                args = ["gconftool-2","-t","string","--set","/desktop/gnome/background/picture_filename", '%s'%(file_loc)]
+                printArr(args)
+                ex(args)
+            elif ["kde3", "trinity"] in destop_env:
                 if debug == True: print ("KDE3/Trinity detected")
                 args = 'dcop kdesktop KBackgroundIface setWallpaper 0 "%s" 6' % file_loc
                 printArr(args)
                 ex(args, shell=True)
             elif "LinuxMint" in desktop_env:
-                uri = "\"file://%s\"" % file_loc
                 args = ["gsettings", "set", "org.cinnamon.desktop.background", "picture-uri", uri]
                 if debug == True: printArr(args)
                 ex(args)
@@ -180,7 +170,7 @@ def set_wallpaper_linux(file_loc, debug):
             stderr.write("ERROR: Failed to set wallpaper. There might be a bug.\n")
             return False
 
-def setWallMain(pathy):
+def setWallMain(pathy, debug):
   from platform import system
   ostype = system()
   if debug == True: print ("OS type: %s"%(ostype))
@@ -204,7 +194,7 @@ def setWallpaper(path, debug):
   if isabs(pathy) == False:
     pathy = "%s/%s"%(getcwd(), path) # change to absolute path
     if debug == True: print ("Changed \'%s\' to %s"%(path, pathy))
-  setWallMain(pathy)
+  setWallMain(pathy, debug)
   
 
 def main():
