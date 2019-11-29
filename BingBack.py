@@ -12,8 +12,8 @@ from urllib2 import Request
 from json import loads
 
 SeeDebugMessages 		= False
-SetDestopWallpaper 		= False
-CreateFolderForTheImageOfTheDay = True
+SetDestopWallpaper 		= True
+CreateFolderForTheImageOfTheDay = False
 home = expanduser('~')
 folder = "Pictures"
 BingBackFolder = "%s/%s/BingDailyImages" % (home, folder) #change to "" if you don't care
