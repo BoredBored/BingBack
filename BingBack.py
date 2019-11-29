@@ -13,7 +13,7 @@ from json import loads
 
 SeeDebugMessages 		= False
 SetDestopWallpaper 		= False
-CreateFolderForTheImageOfTheDay = False
+CreateFolderForTheImageOfTheDay = True
 home = expanduser('~')
 folder = "Pictures"
 BingBackFolder = "%s/%s/BingDailyImages" % (home, folder) #change to "" if you don't care
