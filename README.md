@@ -2,7 +2,7 @@
 A short python script that auto-downloads the Bing Wallpaper of the day to be your desktop background.
 
 ## Notes:
-The backgound setting feature has not been thoroughly tested and has only been used so far on Linux Mint, Ubuntu 20.04, and Windows 10.
+The backgound setting feature has not been thoroughly tested and has only been used so far on Ubuntu 20.04, and Windows 10.
 
 If you would not like to set your wallpaper just set the global variable `SetDestopWallpaper` to false.
 
